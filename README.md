@@ -1,0 +1,2 @@
+# PhotoSpot
+web application for 
