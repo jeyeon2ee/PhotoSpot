@@ -1,2 +1,1 @@
-# PhotoSpot
-web application for 
+web project
