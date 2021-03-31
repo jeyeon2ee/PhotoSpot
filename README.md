@@ -11,7 +11,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </br>
 
 # 🛠 기술스택  
-Frontend
+Frontend - SrpingBoot+Hibernate(mysql)
 
 Backend
 
