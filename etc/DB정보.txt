@@ -1,2 +1,0 @@
-id: root
-pw: root123$root
