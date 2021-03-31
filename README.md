@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/jeyeon2ee/PhotoSpot/blob/main/etc/logo-small.png?raw=true" />
+  <img src="https://user-images.githubusercontent.com/71305852/113148637-0a7d3380-926d-11eb-826c-8219338fb95e.png" />
   <h1> PhotoSpot</h1>
 </div>
 
@@ -28,6 +28,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </br>
 
 # 👩🏻‍💻 개발자
+
+
 <table>
     <tr>
         <td align="center">
