@@ -23,7 +23,7 @@
     import InputBox from '../components/InputBox.vue'
 </script>
 
-<style>
+<style scoped>
 .full{
     width:1000px;
     height:600px;
