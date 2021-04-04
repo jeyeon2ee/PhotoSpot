@@ -8,7 +8,7 @@ Build tool
 - gradld
 
 Framework
--springboot 
+- springboot 
 
 Language 
 - JAVA
@@ -19,8 +19,11 @@ Language
 # 2. 시나리오
 
 2.1 회원가입 
- 사용자가 회원가입 정보 입력 -> JWT로 토큰 생성  -> 토큰 + 사용자 입력정보 DB에 저장  
+ - 사용자가 회원가입 정보 입력 -> JWT로 토큰 생성  -> 토큰 + 사용자 입력정보 DB에 저장  
 
+</br>
+</br>
+</br>
 
 #  개발계획
 ~21.04.04(일) 회원가입구현
