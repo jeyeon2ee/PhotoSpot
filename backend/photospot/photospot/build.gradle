@@ -21,8 +21,8 @@ dependencies {
 	//dbconnection 추가
 	compile('mysql:mysql-connector-java')
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation 'org.projectlombok:lombok'
-	implementation 'org.projectlombok:lombok'
+	//implementation 'org.projectlombok:lombok'
+	//implementation 'org.projectlombok:lombok'
 }
 
 test {
