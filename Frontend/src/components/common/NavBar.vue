@@ -32,10 +32,12 @@
 <script>
 
 export default{
+    props:{
+        username : String
+    },
     data(){
         return{
             message:'Search your Location!',
-            username:'',
             location:''
         }
     },
