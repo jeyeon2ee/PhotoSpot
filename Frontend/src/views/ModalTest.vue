@@ -2,7 +2,7 @@
   <button class="button" @click="showTestModal = true">모달창 띄우기</button>
   <button class="button" @click="showSignUpModal = true">회원가입</button>
 
-  <Modal :show="showSignUpModal" @close="showSignUpModal=false">
+  <Modal :show="showSignUpModal" :forceManualClose="true" @close="showSignUpModal=false">
     <template v-slot:header>
       <h2>회원가입</h2>
     </template>

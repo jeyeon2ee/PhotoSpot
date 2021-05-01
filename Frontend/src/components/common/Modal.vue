@@ -1,17 +1,17 @@
 <template>
-    <transition name="fade">
-        <div v-if="showModal" @click="closeModal" class="modal-container">
+    <transition name="fade" :class="{shake : animated}">
+        <div v-if="showModal" @click="closeModal" class="modal-container" id="modal-container">
             <div @click.stop class="modal">
                 <div class="modal-close">
                     <font-awesome-icon @click="closeModal" class="close-icon" icon="times"/>
                 </div>
-                <div class="modal-header">
+                <div v-if="hasHeader" class="modal-header">
                     <slot name="header"/>
                 </div>
                 <div class="modal-content">
                     <slot name="content"/>
                 </div>
-                <div class="modal-footer">
+                <div v-if="hasFooter" class="modal-footer">
                     <div class="footer-left"><slot name="footer-left"></slot></div>
                     <div class="footer-center"><slot name="footer-center"></slot></div>
                     <div class="footer-right"><slot name="footer-right"></slot></div>
@@ -29,23 +29,39 @@ export default {
             type : Boolean,
             default : false,
         },
-        width : {
-            type : Number,
-            default : 300,
+        forceManualClose : {
+            type : Boolean,
+            default : false,
         },
     },
     data() {
         return {
             showModal : false,
+            animated : false,
         }
     },
     watch : {
         show(newVal, oldVal) {
             this.showModal = newVal
+        },
+        
+    },
+    computed : {
+        hasHeader() {
+            return !!this.$slots['header']
+        },
+        hasFooter() {
+            return !!this.$slots['footer-left'] || !!this.$slots['footer-center'] || !!this.$slots['footer-right']
         }
     },
     methods : {
-        closeModal() {
+        closeModal(evt) {
+            if(this.forceManualClose && evt.target.id == 'modal-container') {
+                this.animated = true
+                setTimeout(()=> this.animated = false, 500)
+                return
+            }
+
             this.showModal = false
             this.$emit("close")
         }
@@ -86,7 +102,7 @@ export default {
 .modal-close {
     position: relative;
     text-align: right;
-    padding-right: 5px;
+    padding-right: 7px;
     padding-top: 5px;
 }
 
@@ -122,5 +138,23 @@ export default {
 
 .fade-enter-from {
     opacity: 0;
+}
+
+.shake {
+    animation: shake 0.3s
+}
+
+@keyframes shake {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 </style>

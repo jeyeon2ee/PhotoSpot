@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import home from '../views/home.vue'
+import Home from '../views/Home.vue'
 import login from '../views/login.vue'
 import ModalTest from '../views/ModalTest.vue'
 import CarouselTest from '../views/CarouselTest.vue'
@@ -12,7 +12,7 @@ const router = createRouter({
         {
             path: '/',
             name: 'Home',
-            component :home
+            component :Home
         },
         {
             path: '/login',
