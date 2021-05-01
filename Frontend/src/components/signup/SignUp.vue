@@ -1,32 +1,31 @@
 <template>
     <div class="container">
         <form id="form" class="form">
-            <h2>Register</h2>
             <div class="form-control" 
                 :class="{success : username.validation.success, error : username.validation.error}">
-                <label for="username">Username</label>
-                <input v-model="username.value" type="text" placeholder="Enter Username">
+                <label for="username">아이디</label>
+                <input v-model="username.value" type="text">
                 <small>{{username.validation.errorMessage}}</small>
             </div>
             <div class="form-control" 
                 :class="{success : email.validation.success, error : email.validation.error}">
-                <label for="email">Email</label>
-                <input v-model="email.value" type="text" placeholder="Enter email">
+                <label for="email">이메일</label>
+                <input v-model="email.value" type="text" >
                 <small>{{email.validation.errorMessage}}</small>
             </div>
             <div class="form-control" 
                 :class="{success : password.validation.success, error : password.validation.error}">
-                <label for="password">Password</label>
-                <input v-model="password.value" type="password" placeholder="Enter Password">
+                <label for="password">비밀번호</label>
+                <input v-model="password.value" type="password" >
                 <small>{{password.validation.errorMessage}}</small>
             </div>
             <div class="form-control" 
                 :class="{success : confirmedPassword.validation.success, error : confirmedPassword.validation.error}">
-                <label for="password2">Confirm Password</label>
-                <input v-model="confirmedPassword.value" type="password" placeholder="Enter Password Again">
+                <label for="password2">비밀번호 재확인</label>
+                <input v-model="confirmedPassword.value" type="password" >
                 <small>{{confirmedPassword.validation.errorMessage}}</small>
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit">가입하기</button>
         </form>
     </div>
 </template>
@@ -101,13 +100,13 @@ export default {
       if(regex.test(this.email.value)) {
           this.showSuccess('email');
       } else {
-          this.showError('email', 'Email is not valid');
+          this.showError('email', '유효한 이메일이 아닙니다.');
       }
     },
 
     checkPasswordMatch() {
       if(this.password.value !== this.confirmedPassword.value) {
-        this.showError('confirmedPassword', 'Passwords do not match')
+        this.showError('confirmedPassword', '비밀번호가 일치하지 않습니다.')
       }
       else {
         this.showSuccess('confirmedPassword')
@@ -118,7 +117,7 @@ export default {
       const length = this[target].value.length
 
       if(length < min || length > max) {
-        this.showError(target, `length of the input must be between ${min} and ${max}`)
+        this.showError(target, `입력 범위는 최소 ${min}자, 최대${max}자 입니다.`)
       }
       else {
         this.showSuccess(target)
@@ -150,10 +149,10 @@ export default {
 }
 
 .container {
-  font-family: "Raleway";
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  /* font-family: "Raleway"; */
+  /* background-color: white; */
+  /* border-radius: 10px; */
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); */
   width: 400px;
 }
 

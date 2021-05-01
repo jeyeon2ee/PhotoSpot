@@ -1,7 +1,18 @@
 <template>
-  <button class="button" @click="showModal = true">모달창 띄우기</button>
+  <button class="button" @click="showTestModal = true">모달창 띄우기</button>
+  <button class="button" @click="showSignUpModal = true">회원가입</button>
 
-  <Modal :show="showModal" @close="showModal=false">
+  <Modal :show="showSignUpModal" @close="showSignUpModal=false">
+    <template v-slot:header>
+      <h2>회원가입</h2>
+    </template>
+
+    <template v-slot:content>
+      <SignUp/>
+    </template>
+  </Modal>
+
+  <Modal :show="showTestModal" @close="showTestModal=false">
     <template v-slot:header>
       <h3>이것은 모달의 제목</h3>
     </template>
@@ -24,14 +35,17 @@
 
 <script>
 import Modal from '../components/common/Modal.vue'
+import SignUp from '../components/signup/SignUp.vue'
 
 export default {
   components : {
       Modal,
+      SignUp,
   },
   data() {
     return {
-      showModal : false,
+      showTestModal : false,
+      showSignUpModal : false,
     }
   },
   methods : {
