@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NavBar/>
+        <NavBar :username="username"/>
         <PhotoCarousel :images="images"/>
     </div>
 </template>
@@ -23,6 +23,7 @@
                     "https://pbs.twimg.com/media/Evid9j5XEAIrpAH?format=jpg&name=900x900",
                     "https://data.whicdn.com/images/345726794/original.jpg"
                 ],
+                username:"heejeong"
             }
         },
     }
