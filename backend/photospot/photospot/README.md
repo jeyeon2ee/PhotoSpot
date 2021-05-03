@@ -28,7 +28,7 @@ Language
 # 3. API 명세
 
 /SingUp : 회원가입 </br></br>
-/SingIn : 로그인 </br></br>
+/LogIn : 로그인 </br></br>
 /Logout : 로그아웃 </br></br>
 
 
