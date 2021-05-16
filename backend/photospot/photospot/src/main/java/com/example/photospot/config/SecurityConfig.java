@@ -37,12 +37,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**").permitAll()
                 .and()
                 .formLogin()
-                .loginPage("/member/login")
+                .loginPage("/Login")
                 .defaultSuccessUrl("/")      // 로그인 성공 시 home으로
                 .permitAll()
                 .and()
                 .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
+                .logoutRequestMatcher(new AntPathRequestMatcher("/Logout"))
                 .logoutSuccessUrl("/")
                 .invalidateHttpSession(true)
                 .and()
@@ -54,4 +54,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //  AuthenticationManagerBuilder를 설정
         auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
     }
+
 }

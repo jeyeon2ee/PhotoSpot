@@ -8,7 +8,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,26 +17,28 @@ import java.util.Optional;
 @NoArgsConstructor
 public class UserService implements UserDetailsService{
 
-    private UserRepository userRepository;
+    private UserRepository repository;
+
 
     @Transactional
-    public void SignUp(UserDto userDto){
+    public void SingUp(UserDto userDto) {
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         userDto.setPwd(passwordEncoder.encode(userDto.getPwd()));
-        userRepository.save(userDto.toEntity()).getId();
-
+        repository.save(userDto.toEntity()).getId();
     }
 
     @Override
     public UserDetails loadUserByUsername(String userid) throws UsernameNotFoundException {
-        
-        Optional<User> userWrapper= userRepository.findByid(userid);
+
+        Optional<User> userWrapper= repository.findByid(userid);
         User user = userWrapper.get();
 
         // 아이디, 비밀번호, User를 만들어 반환해준다.
         return (UserDetails) new User(user.getId(), user.getPwd(),user.getName(),user.getEmail());
     }
+
+
 }
 
 
