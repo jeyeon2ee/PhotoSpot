@@ -35,7 +35,7 @@ public class userController {
     public String login(){
         return "/login";
     }
-    @GetMapping
+    @GetMapping("Logout")
     public String logout(HttpServletRequest request, HttpServletResponse response){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
