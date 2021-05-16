@@ -19,8 +19,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class UserDto {
 
-
-    private int user_id;
     private String id;
     private String pwd;
     private String name;
@@ -29,11 +27,11 @@ public class UserDto {
 
     public User toEntity(){
 
-        return User.builder().id(user_id).id(id).pwd(pwd).email(email).regdate(regdate);
+        return User.builder().id(id).pwd(pwd).email(email).name(name).build();
     }
+
     @Builder
-    public UserDto(int user_id, String id, String pwd, String name, String email, LocalDate regdate){
-        this.user_id=user_id;
+    public UserDto( String id, String pwd, String name, String email, LocalDate regdate){
         this.id=id;
         this.pwd=pwd;
         this.name=name;

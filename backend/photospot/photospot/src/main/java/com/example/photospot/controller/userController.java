@@ -1,7 +1,6 @@
 package com.example.photospot.controller;
 
 import com.example.photospot.dto.UserDto;
-import com.example.photospot.dto.UserForm;
 import com.example.photospot.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -28,8 +27,5 @@ public class userController {
     public String login(){
         return "/loginForm";
     }
-
-
-
 
 }

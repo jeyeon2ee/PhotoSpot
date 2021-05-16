@@ -4,52 +4,46 @@ package com.example.photospot.entity;
 //import jdk.nashorn.internal.objects.annotations.Setter;
 
 import com.sun.istack.NotNull;
-import jdk.nashorn.internal.objects.annotations.Getter;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
-
+@NoArgsConstructor
+@Getter
 @Entity
 @Table(name = "user")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "num_id")
-    private int num_id;
-
     @NotNull
     @Column(name = "id")
-    private char id;
+    private String id;
 
     @NotNull
     @Column(name = "pwd")
-    private char pwd;
+    private String pwd;
 
     @NotNull
     @Column(name = "name")
-    private char name;
+    private String name;
 
     @NotNull
     @Column(name = "email")
-    private char email;
+    private String email;
 
     @Column(name = "Regdate")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate regdate;
 
-
-
-    public User(@NotNull char id, @NotNull char pwd, @NotNull char name, @NotNull char email ) {
+    @Builder
+    public User(@NotNull String id, @NotNull String pwd, @NotNull String name, @NotNull String email ) {
 
         this.id=id;
         this.pwd=pwd;
         this.name=name;
         this.email=email;
-
         regdate=LocalDate.now();
-
 
     }
 }

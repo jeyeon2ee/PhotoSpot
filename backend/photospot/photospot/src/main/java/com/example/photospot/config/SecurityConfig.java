@@ -1,5 +1,6 @@
 package com.example.photospot.config;
 
+import com.example.photospot.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +18,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private MemberService memberService;
+    private UserService userService;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -50,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        // 로그인 처리를 하기 위한 AuthenticationManagerBuilder를 설정
-        auth.userDetailsService(memberService).passwordEncoder(passwordEncoder());
+        //  AuthenticationManagerBuilder를 설정
+        auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
     }
 }
